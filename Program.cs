@@ -4,14 +4,64 @@
  the other player's piece is sent back to their base. the first player to get all their pieces to the finish line wins the game.
 */
 
-// |class Dice                
-// --------------------------------
-// - sides : int
-// - topSide : int
-// --------------------------------
-// + Dice()
-// + Dice(int)
-// + Roll() : void
-// + TopSide : int
-// + Sides : int
-// --------------------------------
+/* |class Dice                
+ --------------------------------
+ - sides : int
+ - topSide : int
+ - rand : Random
+ --------------------------------
+ + Dice()
+ + Dice(int)
+ + Roll() : void
+ + TopSide : int
+ + Sides : int
+ --------------------------------
+ */
+
+// Test Case1:
+//1. create a Dice object using default constructor
+//2. create a Dice object with positive number of sides
+//3. check the topSide after rolling the dice, ensure it is within [1, sides]
+
+public class Dice
+{
+    private int sides;
+    private int topSide;
+    private static Random rand = new Random();
+
+    // Default constructor
+    public Dice()
+    {
+        sides = 6;
+    }
+
+    // Constructor with specified number of sides
+    public Dice(int sides)
+    {
+        if (sides < 4)
+        {
+            throw new ArgumentOutOfRangeException("sides", "Number of sides must be at least 4.");
+        }
+        else
+        {
+            this.sides = sides;
+        }
+    }
+
+    public void Roll()
+    {
+        topSide = rand.Next(1, sides + 1); 
+    }
+
+    public int TopSide
+    {
+        get { return topSide; }
+    }
+
+        public int Sides
+    {
+        get { return sides; }
+    }
+ }
+
+ 
