@@ -17,11 +17,7 @@
  + Sides : int
  --------------------------------
  */
-
-// Test Case1:
-//1. create a Dice object using default constructor
-//2. create a Dice object with positive number of sides
-//3. check the topSide after rolling the dice, ensure it is within [1, sides]
+using System;
 
 public class Dice
 {
@@ -64,4 +60,22 @@ public class Dice
     }
  }
 
- 
+// Test Case1:
+//1. create a Dice object using default constructor
+//2. create a Dice object with positive number of sides
+//3. check the topSide after rolling the dice, ensure it is within [1, sides]
+
+public class DiceGame
+{
+    public static void Main(String[] args)
+    {
+        Dice dice1 = new Dice();
+        Dice dice2 = new Dice(10);
+
+        dice1.Roll();
+        dice2.Roll();
+
+        Console.WriteLine($"Dice1 ({dice1.Sides} sides) rolled: {dice1.TopSide}");
+        Console.WriteLine($"Dice2 ({dice2.Sides} sides) rolled: {dice2.TopSide}");
+    }
+}
